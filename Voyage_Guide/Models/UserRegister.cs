@@ -7,22 +7,22 @@ using System.ServiceModel;
 
 namespace Voyage_Guide.Models
 {
-  [MessageContract]
+  [DataContract]
     public class UserRegister
     {
-        [MessageBodyMember]
+       [DataMember]
         public string username;
 
-        [MessageBodyMember]
+        [DataMember]
         public string firstName;
 
-        [MessageBodyMember]
+        [DataMember]
         public string lastName;
 
-        [MessageBodyMember]
+        [DataMember]
         public string password;
 
-        [MessageBodyMember]
+        [DataMember]
         public string email;
     }
 }

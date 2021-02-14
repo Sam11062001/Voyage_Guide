@@ -38,4 +38,3 @@ namespace Voyage_Guide_Client
         #endregion
     }
 }
-
