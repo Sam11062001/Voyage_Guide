@@ -11,9 +11,9 @@ namespace Voyage_Guide
         public SqlConnection connectToDatabase()
         {
             //create the instance of the connection string 
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = WebConfigurationManager.ConnectionStrings["VoyageGuideDb"].ConnectionString;
+            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\LENOVO\source\repos\Voyage_Guide\Voyage_Guide\App_Data\VoyageDatabase.mdf;Integrated Security=True");
 
+          
             //returning the  connection object 
             return con;
 

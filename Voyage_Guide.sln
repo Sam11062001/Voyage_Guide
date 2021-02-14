@@ -6,6 +6,11 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Voyage_Guide", "Voyage_Guide\Voyage_Guide.csproj", "{B9A474AE-1A68-4DBA-B4EA-560AD7C457B9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Voyage_Guide_Client", "Voyage_Guide_Client\Voyage_Guide_Client.csproj", "{ABD359F9-3DE7-48D0-B8EF-3313DE82C34C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B9A474AE-1A68-4DBA-B4EA-560AD7C457B9} = {B9A474AE-1A68-4DBA-B4EA-560AD7C457B9}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Voyage_Guide_Host", "Voyage_Guide_Host\Voyage_Guide_Host.csproj", "{5BD85B82-EE59-4408-B4FF-FE34240F93CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +26,10 @@ Global
 		{ABD359F9-3DE7-48D0-B8EF-3313DE82C34C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABD359F9-3DE7-48D0-B8EF-3313DE82C34C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ABD359F9-3DE7-48D0-B8EF-3313DE82C34C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BD85B82-EE59-4408-B4FF-FE34240F93CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BD85B82-EE59-4408-B4FF-FE34240F93CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BD85B82-EE59-4408-B4FF-FE34240F93CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BD85B82-EE59-4408-B4FF-FE34240F93CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

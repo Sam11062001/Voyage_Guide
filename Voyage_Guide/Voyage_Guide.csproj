@@ -65,17 +65,17 @@
     <Content Include="App_Data\VoyageDatabase_log.ldf">
       <DependentUpon>VoyageDatabase.mdf</DependentUpon>
     </Content>
-    <Content Include="RegisterService.svc" />
+    <Content Include="Voyage_Guide_Services.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DbConnection.cs" />
-    <Compile Include="IRegisterService.cs" />
+    <Compile Include="IVoyage_Guide_Services.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserRegister.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RegisterService.svc.cs">
-      <DependentUpon>RegisterService.svc</DependentUpon>
+    <Compile Include="Voyage_Guide_Services.svc.cs">
+      <DependentUpon>Voyage_Guide_Services.svc</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />

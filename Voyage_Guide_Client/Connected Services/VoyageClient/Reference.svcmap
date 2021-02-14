@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7da4c12f-6bf0-4eb7-9024-d75592ebacfe" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:52350/Voyage_Guide_Services.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Voyage_Guide_Services.xsd" MetadataType="Schema" ID="28992903-2051-4f17-8cf0-c4e43c82ec86" SourceId="1" SourceUrl="http://localhost:52350/Voyage_Guide_Services.svc?xsd=xsd0" />
+    <MetadataFile FileName="Voyage_Guide_Services.wsdl" MetadataType="Wsdl" ID="e19bed51-3d70-4dc1-abc7-b3fa6c57fe52" SourceId="1" SourceUrl="http://localhost:52350/Voyage_Guide_Services.svc?wsdl" />
+    <MetadataFile FileName="Voyage_Guide_Services1.xsd" MetadataType="Schema" ID="225249ce-fbc7-407d-a751-897fa929f725" SourceId="1" SourceUrl="http://localhost:52350/Voyage_Guide_Services.svc?xsd=xsd1" />
+    <MetadataFile FileName="Voyage_Guide_Services.disco" MetadataType="Disco" ID="29e041d7-f219-49aa-9ceb-464eeba83700" SourceId="1" SourceUrl="http://localhost:52350/Voyage_Guide_Services.svc?disco" />
+    <MetadataFile FileName="Voyage_Guide_Services2.xsd" MetadataType="Schema" ID="1786d46d-1cd9-4960-8b60-d420857add30" SourceId="1" SourceUrl="http://localhost:52350/Voyage_Guide_Services.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
