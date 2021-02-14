@@ -16,7 +16,7 @@ namespace Voyage_Guide_Client
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Register());
+            Application.Run(new dashboard());
         }
     }
 }
