@@ -63,7 +63,7 @@ namespace Voyage_Guide_Client
             }
             catch(FaultException<VoyageClient.Custom_Exception> exception)
             {
-                MessageBox.Show("Message Title" + exception.Detail.Title + "\n" + " Error Message:" + exception.Detail.ExceptionMessage);
+                MessageBox.Show("Message Title " + exception.Detail.Title + "\n" + " Error Message:" + exception.Detail.ExceptionMessage);
                 authProxy.Abort();
             }
             catch (FaultException exception)
