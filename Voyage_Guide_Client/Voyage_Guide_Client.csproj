@@ -37,6 +37,7 @@
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.1.4\lib\net40\Guna.UI2.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
@@ -100,16 +101,19 @@
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Connected Services\VoyageClient\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\VoyageClient\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\VoyageClient\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\VoyageClient\Voyage_Guide_Client.VoyageClient.AuthenticateReply.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\VoyageClient\Voyage_Guide_Services.wsdl" />
-    <None Include="Connected Services\VoyageClient\Voyage_Guide_Services.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\VoyageClient\Voyage_Guide_Services1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\VoyageClient\Voyage_Guide_Services2.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -131,7 +135,7 @@
     <WCFMetadataStorage Include="Connected Services\VoyageClient\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\VoyageClient\Voyage_Guide_Services.disco" />
+    <None Include="Connected Services\VoyageClient\item.disco" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\VoyageClient\configuration91.svcinfo" />

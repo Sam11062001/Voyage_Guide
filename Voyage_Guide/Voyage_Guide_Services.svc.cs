@@ -11,7 +11,7 @@ namespace Voyage_Guide
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Voyage_Guide_Services" in code, svc and config file together.
     // NOTE: In order to launch WCF Test Client for testing this service, please select Voyage_Guide_Services.svc or Voyage_Guide_Services.svc.cs at the Solution Explorer and start debugging.
-    public class Voyage_Guide_Services : IVoyage_Guide_Services,IRegisterService,IAuthService
+    public class Voyage_Guide_Services : IVoyage_Guide_Services,IRegisterService,IAuthService,IVoyageDataSerrvice
     {
         public void DoWork()
         {
@@ -59,38 +59,167 @@ namespace Voyage_Guide
         }
 
         //Login Service Implmentation
-        public bool authenticateUser(string username, string password)
+        public AuthenticateReply authenticateUser(AuthenticateUser authUserData)
         {
+            //Creating the instance of the Message Contract Typw which is required to send to the user
+            AuthenticateReply authenticateReply = new AuthenticateReply();
+            authenticateReply.VoyageisAuthenticated = false;
+            //creating the instance of the Conenction
             DbConnection connection = new DbConnection();
             SqlConnection con = connection.connectToDatabase();
+            //Creating the instance of the Sql Command Object
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
-            cmd.CommandText = "Select UserName,userPassword from VoyageUser where UserName=@username and userPassword=@password";
-            cmd.Parameters.AddWithValue("@username", username);
-            cmd.Parameters.AddWithValue("@password", password);
+            //Parameterized query for the Database to authenticate the user
+            cmd.CommandText = "Select Id,UserName,userPassword from VoyageUser where UserName=@username and userPassword=@password";
+            cmd.Parameters.AddWithValue("@username", authUserData.VoyageUserName);
+            cmd.Parameters.AddWithValue("@password", authUserData.VoyagePassword);
             try
             {
                 con.Open();
                 SqlDataReader rdr = cmd.ExecuteReader();
                 if (rdr != null)
                 {
-                    return true;
+                    rdr.Read();
+                    authenticateReply.VoyageisAuthenticated = true;
+                    authenticateReply.VoyageUserId = Int32.Parse(rdr["Id"].ToString());
                 }
-                else
-                {
-                    return false;
-                }
+                rdr.Close();
             }
             catch (Exception ex)
             {
+                //creating the custom exception so that the client can be awared about the exception occured on the service side.
                 Console.WriteLine("Error Message is:" + ex.Message);
-                return false;
+                Custom_Exception exception = new Custom_Exception();
+                exception.Title = "Error Occured While authenticating the Voyage User";
+                exception.ExceptionMessage = ex.Message;
+                throw new FaultException<Custom_Exception>(exception);
+            }
+            finally
+            {
+                //finally closing the Database Connection
+                con.Close();
+
+            }
+            return authenticateReply;
+        }
+
+        public bool addNewData(VoyageData data)
+        {
+            bool result = false;
+            DbConnection connection = new DbConnection();
+            SqlConnection con = connection.connectToDatabase();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = "INSERT INTO VoyageData(VoyageUserID,ImageData,VoyageContent,VoyageState,VoyageCity)" +
+                "VALUES(@userId,@image,@content,@state,@city)";
+
+            cmd.Parameters.AddWithValue("@userId", data.UserId);
+            cmd.Parameters.AddWithValue("@image", data.imageData);
+            cmd.Parameters.AddWithValue("@content", data.VoyageContent);
+            cmd.Parameters.AddWithValue("@state", data.VoyageState);
+            cmd.Parameters.AddWithValue("@city", data.VoyageCity);
+
+            try
+            {
+                con.Open();
+                int rows_affected = cmd.ExecuteNonQuery();
+                result = true;
+            }
+           catch(Exception ex)
+            {
+                Console.WriteLine("Error Occured:" + ex.Message);
+                result = false;
             }
             finally
             {
                 con.Close();
 
             }
+            return result;
+
+
+        }
+
+        public byte[] getImage()
+        {
+            byte[] image = { 0 };
+            DbConnection connection = new DbConnection();
+            SqlConnection con = connection.connectToDatabase();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = "Select ImageData from VoyageData where VoyageUserID=1";
+            try
+            {
+                con.Open();
+                image = (byte[])cmd.ExecuteScalar();
+               
+
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Some Error Occured:" + ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return image;
+        }
+
+        public bool addNewVoyageData(VoyageData data)
+        {
+            bool result = false;
+            //creating the connection to the database
+            DbConnection connection = new DbConnection();
+            SqlConnection con = connection.connectToDatabase();
+            //create the instance to the SqlCommand Object
+            SqlCommand cmd = new SqlCommand();
+            //Command Object population to the connection and providing the Query string to the sql command object
+            cmd.Connection = con;
+            cmd.CommandText = "INSERT INTO VoyageData(VoyageUserID,ImageData,VoyageContent,VoyageState,VoyageCity)" +
+                "VALUES(@userId,@image,@content,@state,@city)";
+            //using the parameterized query
+            cmd.Parameters.AddWithValue("@userId", data.UserId);
+            cmd.Parameters.AddWithValue("@image", data.imageData);
+            cmd.Parameters.AddWithValue("@content", data.VoyageContent);
+            cmd.Parameters.AddWithValue("@state", data.VoyageState);
+            cmd.Parameters.AddWithValue("@city", data.VoyageCity);
+
+            //try block starting
+            try
+            {
+                //open the connection to database
+                con.Open();
+                //returns the number of rows affected in the database
+                int rows_affected = cmd.ExecuteNonQuery();
+                //return the result of the operation
+                result = true;
+            }
+            //starting of the catch block
+            catch (Exception ex)
+            {
+                //just for checking for the developer purpose 
+                Console.WriteLine("Error Occured:" + ex.Message);
+                //using the custom exception to return the error message at the client side 
+                Custom_Exception custom_Exception = new Custom_Exception();
+                //Giving the appropriate values to the custom exception object
+                custom_Exception.Title = "Voyage_Guide Custom Exception Message";
+                custom_Exception.ExceptionMessage = ex.Message;
+                //throwthe fault exception 
+                throw new FaultException<Custom_Exception>(custom_Exception);
+               
+            }
+            finally
+            {
+                //Closing the Database Connection
+                con.Close();
+
+            }
+            return result;
+
         }
     }
 
