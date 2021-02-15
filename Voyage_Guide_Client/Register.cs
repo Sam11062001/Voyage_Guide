@@ -57,8 +57,8 @@ namespace Voyage_Guide_Client
             {
                 this.Hide();
                 //successfull registeration
-                Form1 f = new Form1();
-                f.Show();
+                login l = new login();
+                l.Show();
             }
             else
             {

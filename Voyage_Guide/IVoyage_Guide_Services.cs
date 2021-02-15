@@ -26,6 +26,21 @@ namespace Voyage_Guide
     public interface IAuthService
     {
         [OperationContract]
-        bool authenticateUser(string username, string password);
+        [FaultContract(typeof(Custom_Exception))]
+        AuthenticateReply authenticateUser(AuthenticateUser authUserData);
+    }
+
+    [ServiceContract]
+    public interface IVoyageDataSerrvice
+    {
+        [OperationContract]
+        bool addNewData(VoyageData data);
+
+        [OperationContract]
+        byte[] getImage();
+
+        [OperationContract]
+        [FaultContract(typeof(Custom_Exception))]
+        bool addNewVoyageData(VoyageData data);
     }
 }

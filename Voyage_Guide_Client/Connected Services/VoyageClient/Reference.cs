@@ -122,50 +122,173 @@ namespace Voyage_Guide_Client.VoyageClient {
         }
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="VoyageClient.IVoyage_Guide_Services")]
-    public interface IVoyage_Guide_Services {
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Custom_Exception", Namespace="http://schemas.datacontract.org/2004/07/Voyage_Guide.Models")]
+    [System.SerializableAttribute()]
+    public partial class Custom_Exception : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVoyage_Guide_Services/DoWork", ReplyAction="http://tempuri.org/IVoyage_Guide_Services/DoWorkResponse")]
-        void DoWork();
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVoyage_Guide_Services/DoWork", ReplyAction="http://tempuri.org/IVoyage_Guide_Services/DoWorkResponse")]
-        System.Threading.Tasks.Task DoWorkAsync();
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IVoyage_Guide_ServicesChannel : Voyage_Guide_Client.VoyageClient.IVoyage_Guide_Services, System.ServiceModel.IClientChannel {
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ExceptionMessageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TitleField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ExceptionMessage {
+            get {
+                return this.ExceptionMessageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ExceptionMessageField, value) != true)) {
+                    this.ExceptionMessageField = value;
+                    this.RaisePropertyChanged("ExceptionMessage");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Title {
+            get {
+                return this.TitleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TitleField, value) != true)) {
+                    this.TitleField = value;
+                    this.RaisePropertyChanged("Title");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class Voyage_Guide_ServicesClient : System.ServiceModel.ClientBase<Voyage_Guide_Client.VoyageClient.IVoyage_Guide_Services>, Voyage_Guide_Client.VoyageClient.IVoyage_Guide_Services {
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="VoyageData", Namespace="http://schemas.datacontract.org/2004/07/Voyage_Guide.Models")]
+    [System.SerializableAttribute()]
+    public partial class VoyageData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        public Voyage_Guide_ServicesClient() {
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int UserIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string VoyageCityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string VoyageContentField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string VoyageStateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] imageDataField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
         }
         
-        public Voyage_Guide_ServicesClient(string endpointConfigurationName) : 
-                base(endpointConfigurationName) {
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int UserId {
+            get {
+                return this.UserIdField;
+            }
+            set {
+                if ((this.UserIdField.Equals(value) != true)) {
+                    this.UserIdField = value;
+                    this.RaisePropertyChanged("UserId");
+                }
+            }
         }
         
-        public Voyage_Guide_ServicesClient(string endpointConfigurationName, string remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string VoyageCity {
+            get {
+                return this.VoyageCityField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.VoyageCityField, value) != true)) {
+                    this.VoyageCityField = value;
+                    this.RaisePropertyChanged("VoyageCity");
+                }
+            }
         }
         
-        public Voyage_Guide_ServicesClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string VoyageContent {
+            get {
+                return this.VoyageContentField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.VoyageContentField, value) != true)) {
+                    this.VoyageContentField = value;
+                    this.RaisePropertyChanged("VoyageContent");
+                }
+            }
         }
         
-        public Voyage_Guide_ServicesClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(binding, remoteAddress) {
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string VoyageState {
+            get {
+                return this.VoyageStateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.VoyageStateField, value) != true)) {
+                    this.VoyageStateField = value;
+                    this.RaisePropertyChanged("VoyageState");
+                }
+            }
         }
         
-        public void DoWork() {
-            base.Channel.DoWork();
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] imageData {
+            get {
+                return this.imageDataField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.imageDataField, value) != true)) {
+                    this.imageDataField = value;
+                    this.RaisePropertyChanged("imageData");
+                }
+            }
         }
         
-        public System.Threading.Tasks.Task DoWorkAsync() {
-            return base.Channel.DoWorkAsync();
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
         }
     }
     
@@ -220,11 +343,55 @@ namespace Voyage_Guide_Client.VoyageClient {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="VoyageClient.IAuthService")]
     public interface IAuthService {
         
+        // CODEGEN: Generating message contract since the wrapper name (AuthenticateUser) of message AuthenticateUser does not match the default value (authenticateUser)
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/authenticateUser", ReplyAction="http://tempuri.org/IAuthService/authenticateUserResponse")]
-        bool authenticateUser(string username, string password);
+        [System.ServiceModel.FaultContractAttribute(typeof(Voyage_Guide_Client.VoyageClient.Custom_Exception), Action="http://tempuri.org/IAuthService/authenticateUserCustom_ExceptionFault", Name="Custom_Exception", Namespace="http://schemas.datacontract.org/2004/07/Voyage_Guide.Models")]
+        Voyage_Guide_Client.VoyageClient.AuthenticateReply authenticateUser(Voyage_Guide_Client.VoyageClient.AuthenticateUser request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/authenticateUser", ReplyAction="http://tempuri.org/IAuthService/authenticateUserResponse")]
-        System.Threading.Tasks.Task<bool> authenticateUserAsync(string username, string password);
+        System.Threading.Tasks.Task<Voyage_Guide_Client.VoyageClient.AuthenticateReply> authenticateUserAsync(Voyage_Guide_Client.VoyageClient.AuthenticateUser request);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="AuthenticateUser", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class AuthenticateUser {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public string VoyagePassword;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public string VoyageUserName;
+        
+        public AuthenticateUser() {
+        }
+        
+        public AuthenticateUser(string VoyagePassword, string VoyageUserName) {
+            this.VoyagePassword = VoyagePassword;
+            this.VoyageUserName = VoyageUserName;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="AuthenticateReply", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class AuthenticateReply {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public int VoyageUserId;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public bool VoyageisAuthenticated;
+        
+        public AuthenticateReply() {
+        }
+        
+        public AuthenticateReply(int VoyageUserId, bool VoyageisAuthenticated) {
+            this.VoyageUserId = VoyageUserId;
+            this.VoyageisAuthenticated = VoyageisAuthenticated;
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -254,12 +421,106 @@ namespace Voyage_Guide_Client.VoyageClient {
                 base(binding, remoteAddress) {
         }
         
-        public bool authenticateUser(string username, string password) {
-            return base.Channel.authenticateUser(username, password);
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Voyage_Guide_Client.VoyageClient.AuthenticateReply Voyage_Guide_Client.VoyageClient.IAuthService.authenticateUser(Voyage_Guide_Client.VoyageClient.AuthenticateUser request) {
+            return base.Channel.authenticateUser(request);
         }
         
-        public System.Threading.Tasks.Task<bool> authenticateUserAsync(string username, string password) {
-            return base.Channel.authenticateUserAsync(username, password);
+        public int authenticateUser(string VoyagePassword, string VoyageUserName, out bool VoyageisAuthenticated) {
+            Voyage_Guide_Client.VoyageClient.AuthenticateUser inValue = new Voyage_Guide_Client.VoyageClient.AuthenticateUser();
+            inValue.VoyagePassword = VoyagePassword;
+            inValue.VoyageUserName = VoyageUserName;
+            Voyage_Guide_Client.VoyageClient.AuthenticateReply retVal = ((Voyage_Guide_Client.VoyageClient.IAuthService)(this)).authenticateUser(inValue);
+            VoyageisAuthenticated = retVal.VoyageisAuthenticated;
+            return retVal.VoyageUserId;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Voyage_Guide_Client.VoyageClient.AuthenticateReply> Voyage_Guide_Client.VoyageClient.IAuthService.authenticateUserAsync(Voyage_Guide_Client.VoyageClient.AuthenticateUser request) {
+            return base.Channel.authenticateUserAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Voyage_Guide_Client.VoyageClient.AuthenticateReply> authenticateUserAsync(string VoyagePassword, string VoyageUserName) {
+            Voyage_Guide_Client.VoyageClient.AuthenticateUser inValue = new Voyage_Guide_Client.VoyageClient.AuthenticateUser();
+            inValue.VoyagePassword = VoyagePassword;
+            inValue.VoyageUserName = VoyageUserName;
+            return ((Voyage_Guide_Client.VoyageClient.IAuthService)(this)).authenticateUserAsync(inValue);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="VoyageClient.IVoyageDataSerrvice")]
+    public interface IVoyageDataSerrvice {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVoyageDataSerrvice/addNewData", ReplyAction="http://tempuri.org/IVoyageDataSerrvice/addNewDataResponse")]
+        bool addNewData(Voyage_Guide_Client.VoyageClient.VoyageData data);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVoyageDataSerrvice/addNewData", ReplyAction="http://tempuri.org/IVoyageDataSerrvice/addNewDataResponse")]
+        System.Threading.Tasks.Task<bool> addNewDataAsync(Voyage_Guide_Client.VoyageClient.VoyageData data);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVoyageDataSerrvice/getImage", ReplyAction="http://tempuri.org/IVoyageDataSerrvice/getImageResponse")]
+        byte[] getImage();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVoyageDataSerrvice/getImage", ReplyAction="http://tempuri.org/IVoyageDataSerrvice/getImageResponse")]
+        System.Threading.Tasks.Task<byte[]> getImageAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVoyageDataSerrvice/addNewVoyageData", ReplyAction="http://tempuri.org/IVoyageDataSerrvice/addNewVoyageDataResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Voyage_Guide_Client.VoyageClient.Custom_Exception), Action="http://tempuri.org/IVoyageDataSerrvice/addNewVoyageDataCustom_ExceptionFault", Name="Custom_Exception", Namespace="http://schemas.datacontract.org/2004/07/Voyage_Guide.Models")]
+        bool addNewVoyageData(Voyage_Guide_Client.VoyageClient.VoyageData data);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVoyageDataSerrvice/addNewVoyageData", ReplyAction="http://tempuri.org/IVoyageDataSerrvice/addNewVoyageDataResponse")]
+        System.Threading.Tasks.Task<bool> addNewVoyageDataAsync(Voyage_Guide_Client.VoyageClient.VoyageData data);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IVoyageDataSerrviceChannel : Voyage_Guide_Client.VoyageClient.IVoyageDataSerrvice, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class VoyageDataSerrviceClient : System.ServiceModel.ClientBase<Voyage_Guide_Client.VoyageClient.IVoyageDataSerrvice>, Voyage_Guide_Client.VoyageClient.IVoyageDataSerrvice {
+        
+        public VoyageDataSerrviceClient() {
+        }
+        
+        public VoyageDataSerrviceClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public VoyageDataSerrviceClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public VoyageDataSerrviceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public VoyageDataSerrviceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public bool addNewData(Voyage_Guide_Client.VoyageClient.VoyageData data) {
+            return base.Channel.addNewData(data);
+        }
+        
+        public System.Threading.Tasks.Task<bool> addNewDataAsync(Voyage_Guide_Client.VoyageClient.VoyageData data) {
+            return base.Channel.addNewDataAsync(data);
+        }
+        
+        public byte[] getImage() {
+            return base.Channel.getImage();
+        }
+        
+        public System.Threading.Tasks.Task<byte[]> getImageAsync() {
+            return base.Channel.getImageAsync();
+        }
+        
+        public bool addNewVoyageData(Voyage_Guide_Client.VoyageClient.VoyageData data) {
+            return base.Channel.addNewVoyageData(data);
+        }
+        
+        public System.Threading.Tasks.Task<bool> addNewVoyageDataAsync(Voyage_Guide_Client.VoyageClient.VoyageData data) {
+            return base.Channel.addNewVoyageDataAsync(data);
         }
     }
 }

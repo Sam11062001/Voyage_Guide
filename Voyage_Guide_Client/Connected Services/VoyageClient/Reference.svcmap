@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7da4c12f-6bf0-4eb7-9024-d75592ebacfe" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0f34858a-da33-49f6-a450-12759d914462" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,14 +19,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:52350/Voyage_Guide_Services.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:8080" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Voyage_Guide_Services.xsd" MetadataType="Schema" ID="28992903-2051-4f17-8cf0-c4e43c82ec86" SourceId="1" SourceUrl="http://localhost:52350/Voyage_Guide_Services.svc?xsd=xsd0" />
-    <MetadataFile FileName="Voyage_Guide_Services.wsdl" MetadataType="Wsdl" ID="e19bed51-3d70-4dc1-abc7-b3fa6c57fe52" SourceId="1" SourceUrl="http://localhost:52350/Voyage_Guide_Services.svc?wsdl" />
-    <MetadataFile FileName="Voyage_Guide_Services1.xsd" MetadataType="Schema" ID="225249ce-fbc7-407d-a751-897fa929f725" SourceId="1" SourceUrl="http://localhost:52350/Voyage_Guide_Services.svc?xsd=xsd1" />
-    <MetadataFile FileName="Voyage_Guide_Services.disco" MetadataType="Disco" ID="29e041d7-f219-49aa-9ceb-464eeba83700" SourceId="1" SourceUrl="http://localhost:52350/Voyage_Guide_Services.svc?disco" />
-    <MetadataFile FileName="Voyage_Guide_Services2.xsd" MetadataType="Schema" ID="1786d46d-1cd9-4960-8b60-d420857add30" SourceId="1" SourceUrl="http://localhost:52350/Voyage_Guide_Services.svc?xsd=xsd2" />
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="58a34d87-ec42-4f46-89cb-3f29a4ed8d00" SourceId="1" SourceUrl="http://localhost:8080/?xsd=xsd2" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="772d7850-28ca-4dd9-9b62-a162f67eaa95" SourceId="1" SourceUrl="http://localhost:8080/?disco" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="fb81c3be-a782-452f-ac98-70ada1c9015b" SourceId="1" SourceUrl="http://localhost:8080/?xsd=xsd0" />
+    <MetadataFile FileName="Voyage_Guide_Services.wsdl" MetadataType="Wsdl" ID="d994aff2-1abe-45d4-9175-0dd6e08a29b3" SourceId="1" SourceUrl="http://localhost:8080/?wsdl" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="4d8e3647-b5c9-4441-b85f-036066686df1" SourceId="1" SourceUrl="http://localhost:8080/?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
