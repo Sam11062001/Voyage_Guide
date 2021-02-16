@@ -74,6 +74,7 @@
     <Compile Include="Models\AuthenticateReply.cs" />
     <Compile Include="Models\AuthenticateUser.cs" />
     <Compile Include="Models\CustomException.cs" />
+    <Compile Include="Models\ImageDataContent.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserRegister.cs" />
     <Compile Include="Models\VoyageData.cs" />

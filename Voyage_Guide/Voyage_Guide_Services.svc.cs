@@ -83,8 +83,9 @@ namespace Voyage_Guide
                     rdr.Read();
                     authenticateReply.VoyageisAuthenticated = true;
                     authenticateReply.VoyageUserId = Int32.Parse(rdr["Id"].ToString());
+                    rdr.Close();
                 }
-                rdr.Close();
+                //rdr.Close();
             }
             catch (Exception ex)
             {
@@ -220,6 +221,102 @@ namespace Voyage_Guide
             }
             return result;
 
+        }
+
+        public int getResultNumber(string state, string city)
+        {
+            int count = 0;
+            //creating the instance of the Conenction
+            DbConnection connection = new DbConnection();
+            SqlConnection con = connection.connectToDatabase();
+            //Creating the instance of the Sql Command Object
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            //Parameterized query for the Database to authenticate the user
+            cmd.CommandText = "Select COUNT(*) from VoyageData where VoyageState=@state and VoyageCity=@city";
+            cmd.Parameters.AddWithValue("@state", state);
+            cmd.Parameters.AddWithValue("@city", city);
+            try
+            {
+                con.Open();
+                count = (Int32)cmd.ExecuteScalar();
+                
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error Occured:" + ex.Message);
+                
+            }
+            finally
+            {
+                con.Close();
+
+            }
+
+            return count;
+
+        }
+
+        public ImageDataContent[] getImageDataContent(string state, string city , int results)
+        {
+            ImageDataContent[] imageDataContentResult = new ImageDataContent[results];
+            //creating the instance of the Conenction
+            DbConnection connection = new DbConnection();
+            SqlConnection con = connection.connectToDatabase();
+            //Creating the instance of the Sql Command Object
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            //Parameterized query for the Database to authenticate the user
+            cmd.CommandText = "Select VoyageUserID,ImageData,VoyageContent from VoyageData where VoyageState=@state and VoyageCity=@city";
+            cmd.Parameters.AddWithValue("@state", state);
+            cmd.Parameters.AddWithValue("@city", city);
+            try
+            {
+                con.Open();
+                SqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr != null)
+                {
+                    int i = 0;
+                    while (rdr.Read())
+                    {
+                        imageDataContentResult[i] = new ImageDataContent();
+                        imageDataContentResult[i].UserId = (Int32)rdr["VoyageUserID"];
+                        imageDataContentResult[i].imageData = (byte[])rdr["ImageData"];
+                        imageDataContentResult[i].VoyageContent = (String)rdr["VoyageContent"];
+                        i++;
+                    }
+                    rdr.Close();
+
+                    for (int j = 0; j < results; j++)
+                    {
+                        SqlCommand cmd1 = new SqlCommand();
+                        cmd1.Connection = con;
+                        //Parameterized query for the Database to authenticate the user
+                        cmd1.CommandText = "Select FirstName,LastName from VoyageUser where Id=@userId";
+                        cmd1.Parameters.AddWithValue("@userId", imageDataContentResult[j].UserId);
+                        SqlDataReader rdr1 = cmd1.ExecuteReader();
+                        rdr1.Read();
+                        imageDataContentResult[j].firstName = (string)rdr1["FirstName"];
+                        imageDataContentResult[j].lastName = (string)rdr1["LastName"];
+                        rdr1.Close();
+
+                    }
+                    
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error Occured:" + ex.Message);
+
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return imageDataContentResult;
         }
     }
 

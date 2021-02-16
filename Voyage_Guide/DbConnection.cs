@@ -11,7 +11,7 @@ namespace Voyage_Guide
         public SqlConnection connectToDatabase()
         {
             //create the instance of the connection string 
-            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\LENOVO\source\repos\Voyage_Guide\Voyage_Guide\App_Data\VoyageDatabase.mdf;Integrated Security=True");
+            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\kaman\Desktop\Voyage_Guide\Voyage_Guide\App_Data\VoyageDatabase.mdf;Integrated Security=True");
 
           
             //returning the  connection object 

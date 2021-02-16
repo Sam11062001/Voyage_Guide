@@ -42,5 +42,13 @@ namespace Voyage_Guide
         [OperationContract]
         [FaultContract(typeof(Custom_Exception))]
         bool addNewVoyageData(VoyageData data);
+
+        [OperationContract]
+        int getResultNumber( string state , string city );
+
+        [OperationContract]
+        ImageDataContent[] getImageDataContent(string state, string city , int results );
+
     }
+
 }
