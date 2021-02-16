@@ -53,6 +53,8 @@ namespace Voyage_Guide_Client
                 else
                 {
                     label3.Visible = true;
+                    guna2Button1.Enabled = true;
+
                 }
 
             }

@@ -80,11 +80,15 @@ namespace Voyage_Guide
                 SqlDataReader rdr = cmd.ExecuteReader();
                 if (rdr != null)
                 {
-                    rdr.Read();
-                    authenticateReply.VoyageisAuthenticated = true;
-                    authenticateReply.VoyageUserId = Int32.Parse(rdr["Id"].ToString());
+                    if (rdr.Read())
+                    {
+                        authenticateReply.VoyageisAuthenticated = true;
+                        authenticateReply.VoyageUserId = Int32.Parse(rdr["Id"].ToString());
+                        rdr.Close();
+                    }
+                  
                 }
-                rdr.Close();
+              
             }
             catch (Exception ex)
             {
