@@ -20,7 +20,8 @@ namespace Voyage_Guide_Client
             InitializeComponent();
             panel1.Hide();
             panel2.Hide();
-            guna2Button2.Visible = false;
+         
+            Voyage_Data_Grid.Hide();
         }
 
         private void guna2Button2_Click(object sender, EventArgs e)
@@ -45,7 +46,46 @@ namespace Voyage_Guide_Client
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
+            Voyage_Data_Grid.Show();
             guna2Button2.Visible = true;
+            //getting the data from the textboxes
+            string state = statetxtbox.Text;
+            string city = citytxtbox.Text;
+
+            //Creating the instance of the service proxy 
+            VoyageClient.VoyageDataSerrviceClient dataProxy = new VoyageClient.VoyageDataSerrviceClient();
+
+            //getting the result from the service
+            int results = dataProxy.getResultNumber(state, city);
+
+            //getting the content from the service
+            VoyageClient.ImageDataContent[] imageDataContents = dataProxy.getImageDataContent(state, city, results);
+
+             Voyage_Data_Grid.DataSource = imageDataContents;
+             Voyage_Data_Grid.AutoResizeColumns();
+              Voyage_Data_Grid.AutoResizeRows();
+
+            //Voyage_Data_Grid.Columns.Add("UserId", "Number");
+            //Voyage_Data_Grid.Columns.Add("firstName", "First Name");
+            //Voyage_Data_Grid.Columns.Add("lastName", "Last Name");
+            //Voyage_Data_Grid.Columns.Add("VoyageContent", "User Thoughts");
+            //Voyage_Data_Grid.Columns.Add("imageData", "User Uploaded Photos");
+
+           
+            //for(int i = 0; i < results; i++)
+            //{
+
+            //    DataGridViewImageColumn imageColumn = new DataGridViewImageColumn();
+            //    imageColumn.Image = Bitmap.FromStream(new MemoryStream(imageDataContents[i].imageData));
+            //    Voyage_Data_Grid.Rows.Add(new Object[] { i + 1, imageDataContents[i].firstName, imageDataContents[i].lastName, imageDataContents[i].VoyageContent, imageColumn });
+           
+            //}
+            //Voyage_Data_Grid.AutoResizeRows();
+            //Voyage_Data_Grid.AutoResizeColumns();
+
+
+
+
         }
 
         private void guna2Panel2_Paint(object sender, PaintEventArgs e)
@@ -106,7 +146,7 @@ namespace Voyage_Guide_Client
             try
             {
                 VoyageClient.VoyageData  data= new VoyageClient.VoyageData();
-                data.UserId = Int32.Parse(ConfigurationSettings.AppSettings["UserVoyageId"]);
+                data.UserId = Int32.Parse(ConfigurationSettings.AppSettings["UVID3"]);
                 data.imageData = File.ReadAllBytes(newImagePath);
                 data.VoyageContent = contentTextBox.Text;
                 data.VoyageState = stateTextBox.Text;
@@ -115,7 +155,10 @@ namespace Voyage_Guide_Client
                 bool result=dataProxy.addNewVoyageData(data);
                 MessageBox.Show("Your Data is succesfully stored!!!" + "\n" + "Thank You for your contribution");
 
-
+                contentTextBox.Text = "";
+                stateTextBox.Text = "";
+                cityTextBox.Text = "";
+                panel1.Hide();
 
 
             }
@@ -165,7 +208,7 @@ namespace Voyage_Guide_Client
         {
             Configuration config = ConfigurationManager.OpenExeConfiguration(Application.ExecutablePath);
 
-            config.AppSettings.Settings.Remove("UserVoyageId");
+            config.AppSettings.Settings.Remove("UVID3");
             config.Save(ConfigurationSaveMode.Modified);
             this.Close();
         }

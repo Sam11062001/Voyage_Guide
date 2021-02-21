@@ -27,4 +27,20 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="VoyageData" nillable="true" type="tns:VoyageData" />
+  <xs:complexType name="ArrayOfImageDataContent">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ImageDataContent" nillable="true" type="tns:ImageDataContent" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfImageDataContent" nillable="true" type="tns:ArrayOfImageDataContent" />
+  <xs:complexType name="ImageDataContent">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="UserId" type="xs:int" />
+      <xs:element minOccurs="0" name="VoyageContent" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="firstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="imageData" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="lastName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ImageDataContent" nillable="true" type="tns:ImageDataContent" />
 </xs:schema>

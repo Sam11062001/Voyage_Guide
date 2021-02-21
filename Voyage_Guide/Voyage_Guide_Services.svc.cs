@@ -78,9 +78,9 @@ namespace Voyage_Guide
             {
                 con.Open();
                 SqlDataReader rdr = cmd.ExecuteReader();
-                if (rdr != null)
+                if (rdr.Read())
                 {
-                    rdr.Read();
+                    
                     authenticateReply.VoyageisAuthenticated = true;
                     authenticateReply.VoyageUserId = Int32.Parse(rdr["Id"].ToString());
                     rdr.Close();
