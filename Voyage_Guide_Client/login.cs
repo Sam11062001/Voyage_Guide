@@ -40,10 +40,10 @@ namespace Voyage_Guide_Client
                 if (VoyageisAuthenticated)
                 {
                     Configuration config = ConfigurationManager.OpenExeConfiguration(Application.ExecutablePath);
-                    config.AppSettings.Settings.Add("UserVoyageId", UserID.ToString());
+                    config.AppSettings.Settings.Add("UVID3", UserID.ToString());
                     config.Save(ConfigurationSaveMode.Minimal);
                     ConfigurationManager.RefreshSection("appSettings");
-                    int UseridReterived = Int32.Parse(ConfigurationSettings.AppSettings["UserVoyageId"]);
+                    int UseridReterived = Int32.Parse(ConfigurationSettings.AppSettings["UVID3"]);
                     dashboard d1 = new dashboard();
 
                     d1.Show();

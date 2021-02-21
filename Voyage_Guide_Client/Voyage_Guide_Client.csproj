@@ -113,6 +113,9 @@
     <None Include="Connected Services\VoyageClient\Voyage_Guide_Client.VoyageClient.AuthenticateReply.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\VoyageClient\Voyage_Guide_Client.VoyageClient.ImageDataContent.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\VoyageClient\Voyage_Guide_Services.wsdl" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

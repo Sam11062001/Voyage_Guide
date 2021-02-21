@@ -523,6 +523,82 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IVoyageDataSerrvice_getResultNumber_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IVoyageDataSerrvice_getResultNumber_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IVoyageDataSerrvice_getImageDataContent_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IVoyageDataSerrvice_getImageDataContent_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd0" namespace="http://tempuri.org/" />
@@ -573,6 +649,18 @@
   <wsdl:message name="IVoyageDataSerrvice_addNewVoyageData_Custom_ExceptionFault_FaultMessage">
     <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/Voyage_Guide.Models" name="detail" element="q2:Custom_Exception" />
   </wsdl:message>
+  <wsdl:message name="IVoyageDataSerrvice_getResultNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:getResultNumber" />
+  </wsdl:message>
+  <wsdl:message name="IVoyageDataSerrvice_getResultNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getResultNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVoyageDataSerrvice_getImageDataContent_InputMessage">
+    <wsdl:part name="parameters" element="tns:getImageDataContent" />
+  </wsdl:message>
+  <wsdl:message name="IVoyageDataSerrvice_getImageDataContent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getImageDataContentResponse" />
+  </wsdl:message>
   <wsdl:portType name="IRegisterService">
     <wsdl:operation name="registerUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IRegisterService/registerUser" message="tns:IRegisterService_registerUser_InputMessage" />
@@ -599,6 +687,14 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IVoyageDataSerrvice/addNewVoyageData" message="tns:IVoyageDataSerrvice_addNewVoyageData_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IVoyageDataSerrvice/addNewVoyageDataResponse" message="tns:IVoyageDataSerrvice_addNewVoyageData_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IVoyageDataSerrvice/addNewVoyageDataCustom_ExceptionFault" name="Custom_ExceptionFault" message="tns:IVoyageDataSerrvice_addNewVoyageData_Custom_ExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getResultNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVoyageDataSerrvice/getResultNumber" message="tns:IVoyageDataSerrvice_getResultNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVoyageDataSerrvice/getResultNumberResponse" message="tns:IVoyageDataSerrvice_getResultNumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getImageDataContent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVoyageDataSerrvice/getImageDataContent" message="tns:IVoyageDataSerrvice_getImageDataContent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVoyageDataSerrvice/getImageDataContentResponse" message="tns:IVoyageDataSerrvice_getImageDataContent_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WSHttpBinding_IRegisterService" type="tns:IRegisterService">
@@ -677,6 +773,28 @@
         <wsp:PolicyReference URI="#WSHttpBinding_IVoyageDataSerrvice_addNewVoyageData_Custom_ExceptionFault_Fault" />
         <soap12:fault use="literal" name="Custom_ExceptionFault" namespace="" />
       </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getResultNumber">
+      <soap12:operation soapAction="http://tempuri.org/IVoyageDataSerrvice/getResultNumber" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IVoyageDataSerrvice_getResultNumber_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IVoyageDataSerrvice_getResultNumber_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getImageDataContent">
+      <soap12:operation soapAction="http://tempuri.org/IVoyageDataSerrvice/getImageDataContent" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IVoyageDataSerrvice_getImageDataContent_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IVoyageDataSerrvice_getImageDataContent_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="Voyage_Guide_Services">

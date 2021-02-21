@@ -292,6 +292,115 @@ namespace Voyage_Guide_Client.VoyageClient {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ImageDataContent", Namespace="http://schemas.datacontract.org/2004/07/Voyage_Guide.Models")]
+    [System.SerializableAttribute()]
+    public partial class ImageDataContent : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int UserIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string VoyageContentField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string firstNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] imageDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string lastNameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int UserId {
+            get {
+                return this.UserIdField;
+            }
+            set {
+                if ((this.UserIdField.Equals(value) != true)) {
+                    this.UserIdField = value;
+                    this.RaisePropertyChanged("UserId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string VoyageContent {
+            get {
+                return this.VoyageContentField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.VoyageContentField, value) != true)) {
+                    this.VoyageContentField = value;
+                    this.RaisePropertyChanged("VoyageContent");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string firstName {
+            get {
+                return this.firstNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.firstNameField, value) != true)) {
+                    this.firstNameField = value;
+                    this.RaisePropertyChanged("firstName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] imageData {
+            get {
+                return this.imageDataField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.imageDataField, value) != true)) {
+                    this.imageDataField = value;
+                    this.RaisePropertyChanged("imageData");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string lastName {
+            get {
+                return this.lastNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.lastNameField, value) != true)) {
+                    this.lastNameField = value;
+                    this.RaisePropertyChanged("lastName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="VoyageClient.IRegisterService")]
     public interface IRegisterService {
@@ -470,6 +579,18 @@ namespace Voyage_Guide_Client.VoyageClient {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVoyageDataSerrvice/addNewVoyageData", ReplyAction="http://tempuri.org/IVoyageDataSerrvice/addNewVoyageDataResponse")]
         System.Threading.Tasks.Task<bool> addNewVoyageDataAsync(Voyage_Guide_Client.VoyageClient.VoyageData data);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVoyageDataSerrvice/getResultNumber", ReplyAction="http://tempuri.org/IVoyageDataSerrvice/getResultNumberResponse")]
+        int getResultNumber(string state, string city);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVoyageDataSerrvice/getResultNumber", ReplyAction="http://tempuri.org/IVoyageDataSerrvice/getResultNumberResponse")]
+        System.Threading.Tasks.Task<int> getResultNumberAsync(string state, string city);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVoyageDataSerrvice/getImageDataContent", ReplyAction="http://tempuri.org/IVoyageDataSerrvice/getImageDataContentResponse")]
+        Voyage_Guide_Client.VoyageClient.ImageDataContent[] getImageDataContent(string state, string city, int results);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVoyageDataSerrvice/getImageDataContent", ReplyAction="http://tempuri.org/IVoyageDataSerrvice/getImageDataContentResponse")]
+        System.Threading.Tasks.Task<Voyage_Guide_Client.VoyageClient.ImageDataContent[]> getImageDataContentAsync(string state, string city, int results);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -521,6 +642,22 @@ namespace Voyage_Guide_Client.VoyageClient {
         
         public System.Threading.Tasks.Task<bool> addNewVoyageDataAsync(Voyage_Guide_Client.VoyageClient.VoyageData data) {
             return base.Channel.addNewVoyageDataAsync(data);
+        }
+        
+        public int getResultNumber(string state, string city) {
+            return base.Channel.getResultNumber(state, city);
+        }
+        
+        public System.Threading.Tasks.Task<int> getResultNumberAsync(string state, string city) {
+            return base.Channel.getResultNumberAsync(state, city);
+        }
+        
+        public Voyage_Guide_Client.VoyageClient.ImageDataContent[] getImageDataContent(string state, string city, int results) {
+            return base.Channel.getImageDataContent(state, city, results);
+        }
+        
+        public System.Threading.Tasks.Task<Voyage_Guide_Client.VoyageClient.ImageDataContent[]> getImageDataContentAsync(string state, string city, int results) {
+            return base.Channel.getImageDataContentAsync(state, city, results);
         }
     }
 }
